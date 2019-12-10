@@ -10,7 +10,7 @@ RUN set -x \
     && locale-gen \
     && chmod +x /original-docker-entrypoint.sh
 
-COPY 000.base-command.sh /docker-entrypoint-initdb_original.d
+COPY init.d/ /docker-entrypoint-initdb_original.d/
 
 ENV TZ 'Asia/Tokyo'
 ENV LANG ja_JP.UTF-8
