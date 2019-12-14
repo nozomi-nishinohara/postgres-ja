@@ -1,2 +1,4 @@
-sed -i "s/^.*max_prepared_transactions\s*=\s*\(.*\)$/max_prepared_transactions = 1000/" "$PGDATA"/postgresql.conf
-sed -i "s/^.*max_connections\s*=\s*\(.*\)$/max_connections = 1000/" "$PGDATA"/postgresql.conf
+. /usr/libutils.sh
+
+postgresql_set_property "max_prepared_transactions" "${max_prepared_transactions:-1000}"
+postgresql_set_property "max_connections" "${max_connections:-1000}"
