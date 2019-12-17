@@ -24,7 +24,7 @@ if [ "$REPLICA" = 'master' ]; then
     fi
     mv /docker-entrypoint-initdb_original.d/*  /docker-entrypoint-initdb.d/
     elif [ "${REPLICA}" = 'slave' ]; then
-    /usr/wait-for-it.sh
+    wait-for-it.sh
     postgresql_slave_init_db
 fi
 

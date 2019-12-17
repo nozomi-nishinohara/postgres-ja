@@ -1,15 +1,13 @@
 CHECK_HOST=${MASTER_HOST:-''}
 CHECK_PORT=${MASTER_PORT:-0}
-WAITTIME=${WAITTIME:-10}
-WAITCNT=${z:-5}
+WAITTIME=${WAITTIME:-60}
+WAITCNT=${z:-10}
 
 wait_for()
 {
     cnt=0
     while [ $WAITCNT -gt $cnt ]
     do
-        echo "$CHECK_HOST"
-        echo "$CHECK_PORT"
         nc -z $CHECK_HOST $CHECK_PORT
         WAITFORIT_result=$?
         if [ $WAITFORIT_result -eq 0 ]; then
